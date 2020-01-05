@@ -69,32 +69,47 @@ Apollo 環境を使う場合に、フロントは必ずしも React を使う必
 
 ### System requirements
 
-Before we begin, make sure you have the following installed:
+始める前に以下のリストがインストールされていることを確認しましょう。
+
+> Before we begin, make sure you have the following installed:
 
 - [Node.js](https://nodejs.org/) v8.x or later
 - [npm](https://www.npmjs.com/) v6.x or later
 - [git](https://git-scm.com/) v2.14.1 or later
 
-Although it isn't required, we also recommend using [VS Code](https://code.visualstudio.com/)
+また必須ではありませんがエディターには VS Code を使用することを推奨します。そうすることで Apollo の拡張機能を使うことができます。（訳注: WebStorm もいいよ！拡張機能もあるよ！）
+
+> Although it isn't required, we also recommend using [VS Code](https://code.visualstudio.com/)
 as your editor so you can use Apollo's helpful VS Code extension.
 
 ## Clone the example app
 
-Now the fun begins! From your preferred development directory, clone [this repository](https://github.com/apollographql/fullstack-tutorial):
+さあ面白くなっていきますよ！お望みの開発ディレクトリに移動したら、[このリポジトリ](https://github.com/apollographql/fullstack-tutorial) をクローンしましょう。
+
+> Now the fun begins! From your preferred development directory, clone [this repository](https://github.com/apollographql/fullstack-tutorial):
 
 ```bash
 git clone https://github.com/apollographql/fullstack-tutorial.git
 ```
 
-The repository contains two top-level directories: `start` and `final`. During the
+このリポジトリは一番上の階層に `start` と `final` というディレクトリがあります。このチューチルアルの作業は `start` ディレクトリの中に加えていきます。そうすると全ての作業が終わった時には `final` ディレクトリの中と一致することになるというわけです。
+
+> The repository contains two top-level directories: `start` and `final`. During the
 tutorial you'll edit the files in `start`, and at the end they'll match the
 completed app in `final`.
 
-Each top-level directory contains two directories of its own: `server` and `client`. We'll be working in the `server` directory first. If you're already comfortable
+`start` と `final` ディレクトリの下にはそれぞれ `server` と `client` というディレクトリがあります。まずは `server` ディレクトリから作業を始めていきます。もし graph API の構築についてよく知っている場合にはこのセクションは飛ばして `client` の領域に進みたいと思うでしょう。その場合には[このチュートリアルの後半](/tutorial/client/) に移動してください
+
+> Each top-level directory contains two directories of its own: `server` and `client`. We'll be working in the `server` directory first. If you're already comfortable
 building a graph API and you want to skip to the `client` portion, navigate to the [second half of the tutorial](/tutorial/client/).
 
 ## Need help?
 
-Learning a new technology can be overwhelming sometimes, and it's common to get stuck! If that happens, we recommend joining the [Apollo Spectrum community](https://spectrum.chat/apollo) and posting in the relevant channel (either `#apollo-server` or `#apollo-client`) for assistance from friendly fellow developers.
+新しい技術を習得するというのは時にその大変さに押しつぶされそうになるものです。ハマるのもよくあることです。その場合には [Apollo Spectrum community](https://spectrum.chat/apollo) に入って関連チャンネルで助けを求める投稿をしてみましょう。きっと親切な開発者が手を貸してくれるはずです。（訳注: [uncle-javascript.com](https://uncle-javascript.com/about/) でも GraphQL を含むコンテンポラリーJavaScript に関する開発情報を提供しています。コンタクトしてください。）
 
-If anything in the tutorial seems confusing or contains an error, we'd love your feedback! Click the **Edit on GitHub** link on the right side of the page to open a new pull request, or [open an issue on the repository](https://github.com/apollographql/apollo/issues/new).
+> Learning a new technology can be overwhelming sometimes, and it's common to get stuck! If that happens, we recommend joining the [Apollo Spectrum community](https://spectrum.chat/apollo) and posting in the relevant channel (either `#apollo-server` or `#apollo-client`) for assistance from friendly fellow developers.
+
+もしこのチュートリアルにわかりにくい部分やエラーが含まれている場合には、フィードバックをしてください。**Edit on GitHub**　と書かれたリンクがこのページの右側にあります。これをクリックしてプルリクエストを出してください。おしくは [リポジトリでイシューを作成](https://github.com/apollographql/apollo/issues/new) していただいてもいいです。（訳注: この翻訳は[このリポジトリ](https://github.com/superyusuke/apollo-docs)でおこなっていますので、修正リクエストや翻訳の追加をおこなうこともできます。）
+
+
+> If anything in the tutorial seems confusing or contains an error, we'd love your feedback! Click the **Edit on GitHub** link on the right side of the page to open a new pull request, or [open an issue on the repository](https://github.com/apollographql/apollo/issues/new).
