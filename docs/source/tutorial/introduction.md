@@ -19,36 +19,48 @@ World", complete with authentication, pagination, testing, and more.
 
 ## What we'll build
 
-このチュートリアルでは、SpaceX 宇宙行き便へ搭乗予約をするためのアプリケーションを作っていきます。まあ Airbnb の宇宙旅行版だと考えてくれればいいでしょう。我々が使うデータは全てリアルなものです。[SpaceX-API](https://github.com/r-spacex/SpaceX-API) が提供されているおかげです。ありがとう。
+このチュートリアルでは、SpaceX 宇宙行き便へ搭乗予約をするためのアプリケーションを作っていきます。まあ Airbnb の宇宙旅行版だと考えてくれればいいでしょう。我々が使うデータは全て本当の SpaceX のものです。[SpaceX-API](https://github.com/r-spacex/SpaceX-API) が提供されているおかげです。ありがとう。
 
 > In this tutorial, we'll build an interactive app for reserving a seat on an upcoming SpaceX launch. Think of it as an Airbnb for space travel! All of the data is real, thanks to the [SpaceX-API](https://github.com/r-spacex/SpaceX-API).
 
-Here's what the finished app will look like:
+アプリケーションが完成すると以下のような見た目になります。
+
+> Here's what the finished app will look like:
 
 <div style="text-align:center">
   <img src="../images/space-explorer.png" alt="Space explorer" width="400">
 </div>
 
-The app includes the following views:
+このアプリケーションには以下の画面があります。
 
-* A login page
-* A list of upcoming launches
-* A detail view for an individual launch
-* A user profile page
-* A cart
+> The app includes the following views:
 
-To populate these views, our app's data graph will connect to two data sources:
+* ログインページ
+* 予定される打ち上げ日程のリスト
+* 各打ち上げの詳細
+* ユーザープロフィールページ
+* チケット購入カート
+
+これらの画面のために GraphQL の data graph は二つのデータソースにつながっています。一つは REST API で、もう一つは SQLite のデータベースです。（この二つの技術に詳しくなくてもチュートリアルを進める上では問題ありませんので心配しないでください。）
+
+> To populate these views, our app's data graph will connect to two data sources:
 a REST API and a SQLite database. (Don't worry, you don't need to be familiar with
 either of those technologies to complete the tutorial.)
 
-As mentioned, we want this example to resemble a real-world Apollo app, so we'll
+すでに言及したことですが、今回作るアプリケーションはなるべく実際の例に近づくようにしましたので、このアプリケーションには認証やページネーションや状態管理といった一般的によくある便利機能が組み込まれています。
+
+> As mentioned, we want this example to resemble a real-world Apollo app, so we'll
 also add common useful features like authentication, pagination, and state
 management.
 
 ## Prerequisites
 
-This tutorial assumes that you're familiar with both JavaScript/ES6
+このチュートリアルはみなさんが JavaScript の ES6 バージョンと React に慣れていることを前提としています。React の復習が必要な場合は [公式 tutorial](https://reactjs.org/tutorial/tutorial.html) を読むことをお勧めします。
+
+> This tutorial assumes that you're familiar with both JavaScript/ES6
 and React. If you need to brush up on React, we recommend going through the [official tutorial](https://reactjs.org/tutorial/tutorial.html).
+
+Apollo 環境を使う場合に、フロントは必ずしも React を使う必要はありませんが、React は Apollo が特にサポートしているライブラリではあります。もちろん Angular や Vue を用いることもできますし、このチュートリアルの概念はそれらのライブラリを使う場合にも適応することができます。
 
 > Building your frontend with React is not a requirement for using the Apollo
 > platform, but it is the primary view layer supported by Apollo.
