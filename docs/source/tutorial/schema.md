@@ -1,21 +1,29 @@
 ---
 title: '1. Build a schema'
-description: Create a blueprint for your graph's data
+description: graph データの設計図を作ろう
 ---
 
-The first step on our journey toward building our graph API is constructing its **schema**. You can think of a schema as a blueprint for all of the data you can access in your graph. Throughout this section, you'll learn how to build and explore your graph's schema with Apollo.
+graph API をつくるこの旅の最初のステップは、**schema** を作ることです。schema は、graph を通してアクセスできる全てのデータの「設計図」といってもいいでしょう。このセクションを通して Apollo を用いて graph の schema を作る方法と、その構造を探求する方法を学習します。
+
+> The first step on our journey toward building our graph API is constructing its **schema**. You can think of a schema as a blueprint for all of the data you can access in your graph. Throughout this section, you'll learn how to build and explore your graph's schema with Apollo.
 
 ## Set up Apollo Server
 
-Before we write our schema, we need to set up our graph API's server. **Apollo Server** is a library that helps you build a production-ready graph API over your data. It can connect to any data source, including REST APIs and databases, and it seamlessly integrates with Apollo developer tooling.
+Schema を書く前に、graph API のサーバーを立てる必要があります。**Apollo Server**　はプロダクションに即使える graph API の構築を助けてくれるライブラリです。これを使えばどんなデータソースにもアクセスすることができます。もちろん REST API にもデータベースにも。さらにこれをつかうことで Apollo の開発ツールともシームレスに連携することができます。
 
-From the root, let's install our project's dependencies:
+> Before we write our schema, we need to set up our graph API's server. **Apollo Server** is a library that helps you build a production-ready graph API over your data. It can connect to any data source, including REST APIs and databases, and it seamlessly integrates with Apollo developer tooling.
+
+では開発ディレクトリのルートで必要なパッケージをインストールしていましょう。
+
+> From the root, let's install our project's dependencies:
 
 ```bash
 cd start/server && npm install
 ```
 
-The two packages you need to get started with Apollo Server are `apollo-server` and `graphql`, which we've already installed for you. Now, let's navigate to `src/index.js` so we can create our server. Copy the code below into the file.
+Apollo Server の開発を始めるのに必要なパッケージは、`apollo-server` and `graphql` です。これはすでに package.json に記録しておきましたので上記コマンドを実行すればインストールが完了します。では
+
+> The two packages you need to get started with Apollo Server are `apollo-server` and `graphql`, which we've already installed for you. Now, let's navigate to `src/index.js` so we can create our server. Copy the code below into the file.
 
 _src/index.js_
 
