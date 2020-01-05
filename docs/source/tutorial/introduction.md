@@ -1,19 +1,27 @@
 ---
 title: 0. Introduction
-description: Start here to learn how to build full-stack apps with Apollo
+description: Apollo を使ったアプリケーションを作成するすためにはまずこのチュートリアルから始めましょう
 ---
 
-Welcome! This tutorial guides you through building a full-stack, GraphQL-powered app with the Apollo platform.
+ようこそ Apollo の世界へ！ このチュートリアルではフルスタックアプリケーションの構築を通して、GraphQL の機能を紹介します。用いるのは Appllo 環境のツールです。
 
-We want you to feel empowered to build your own production-ready app with Apollo, so 
+> Welcome! This tutorial guides you through building a full-stack, GraphQL-powered app with the Apollo platform.
+
+このチュートリアルを通して、Apollo を使うことで実務レベルのアプリケーションの構築が可能であるということを感じてほしいので、あえて "Hello World" レベルのチュートリアルは飛ばして、実際の案件に近しい例を取り上げることにしました。つまり認証があって、ページネーションがあって、テストがって、といった具合のアプリケーションを作っていきます。
+
+> We want you to feel empowered to build your own production-ready app with Apollo, so
 we're skipping "Hello World" in favor of an example that's closer to "Real
-World", complete with authentication, pagination, testing, and more. 
+World", complete with authentication, pagination, testing, and more.
 
-Ready? Let's dive in!
+準備はいいですか？ではいきましょう！
+
+> Ready? Let's dive in!
 
 ## What we'll build
 
-In this tutorial, we'll build an interactive app for reserving a seat on an upcoming SpaceX launch. Think of it as an Airbnb for space travel! All of the data is real, thanks to the [SpaceX-API](https://github.com/r-spacex/SpaceX-API).
+このチュートリアルでは、SpaceX 宇宙行き便へ搭乗予約をするためのアプリケーションを作っていきます。まあ Airbnb の宇宙旅行版だと考えてくれればいいでしょう。我々が使うデータは全てリアルなものです。[SpaceX-API](https://github.com/r-spacex/SpaceX-API) が提供されているおかげです。ありがとう。
+
+> In this tutorial, we'll build an interactive app for reserving a seat on an upcoming SpaceX launch. Think of it as an Airbnb for space travel! All of the data is real, thanks to the [SpaceX-API](https://github.com/r-spacex/SpaceX-API).
 
 Here's what the finished app will look like:
 
@@ -29,7 +37,7 @@ The app includes the following views:
 * A user profile page
 * A cart
 
-To populate these views, our app's data graph will connect to two data sources: 
+To populate these views, our app's data graph will connect to two data sources:
 a REST API and a SQLite database. (Don't worry, you don't need to be familiar with
 either of those technologies to complete the tutorial.)
 
@@ -42,9 +50,9 @@ management.
 This tutorial assumes that you're familiar with both JavaScript/ES6
 and React. If you need to brush up on React, we recommend going through the [official tutorial](https://reactjs.org/tutorial/tutorial.html).
 
-> Building your frontend with React is not a requirement for using the Apollo 
+> Building your frontend with React is not a requirement for using the Apollo
 > platform, but it is the primary view layer supported by Apollo.
-> If you use another view layer (such as Angular or Vue), you can still 
+> If you use another view layer (such as Angular or Vue), you can still
 > apply this tutorial's concepts to it.
 
 ### System requirements
