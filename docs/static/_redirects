@@ -1,5 +1,5 @@
 # トップにあったら移動させるやつだと思う。破棄
-/ /docs/
+# / /docs/
 
 # Add Developer Tools category to root docset
 /docs/resources/apollo-config/ /docs/devtools/apollo-config/
