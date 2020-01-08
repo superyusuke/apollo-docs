@@ -1,5 +1,5 @@
 ---
-title: 0. Introduction
+title: 0. イントロダクション
 description: Apollo を使ったアプリケーションを作成するすためにはまずこのチュートリアルから始めましょう
 ---
 
