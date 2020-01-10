@@ -13,7 +13,7 @@ module.exports = {
         spectrumPath: '/',
         sidebarCategories: {
           null: ['index', 'intro/platform', 'intro/benefits', 'makeMoneyTS/index'],
-          Tutorial: [
+          チュートリアル: [
             'tutorial/introduction',
             'tutorial/schema',
             'tutorial/data-source',
