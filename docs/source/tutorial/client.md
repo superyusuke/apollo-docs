@@ -3,6 +3,10 @@ title: "5. API をクライアントに接続する"
 description: graph を Apollo Client に繋ぎこむ
 ---
 
+> 翻訳担当：keifff  
+> github: https://github.com/keiffff  
+> twitter: https://twitter.com/kei_ffff
+
 Time to accomplish: _10 Minutes_
 
 このチュートリアルの後半部分では、Apollo Client を用いて、 graph API を フロントエンドに接続することにのみフォーカスします。 **Apollo Client** はいかなるクライアントに対しても、データ管理に関する完全なソリューションになります。それは view 層における不可知論者である、すなわち、React, Vue, Angular はもちろん、vanilla JS でさえも統合可能であることを意味しています。賢いキャッシュの仕組みにより、 Apollo Client はあなたのアプリケーションにおけるすべてのローカル、リモートデータに対する、信頼できる唯一の情報源を提供します。
