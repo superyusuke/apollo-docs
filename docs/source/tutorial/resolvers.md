@@ -1,15 +1,21 @@
 ---
-title: "3. Write your graph's resolvers"
+title: "3. Graph の resolver を作成する"
 description: Learn how a GraphQL query fetches data
 ---
 
 Time to accomplish: _15 Minutes_
 
-Up until now, our graph API hasn't been very useful. We can inspect our graph's schema, but we can't actually run queries against it. Now that we've built our schema and data sources, it's time to leverage all of our hard work by calling our data sources in our graph API's resolver functions to possibly trigger business logic and/or to fetch and/or update data.
+ここまでの作業でつくってきた graph API は、まだ機能的に十分とはいえません。graph schema がどうなっているかをチェックしたりすることはできるようになったものの（たとえば playground を使って schema を調べたりすることはできるようにはなっているが）、この graph API に対して query を投げて実行させるということはしていないし、できないからです。なのでここからは graph API の resolver を作成し、今まで頑張って作ってきた data sources を resolver の中で呼び出し、ビジネスロジックをトリガーしたりデータを取得したり更新させたりといった機能を作っていきます。
+
+> Up until now, our graph API hasn't been very useful. We can inspect our graph's schema, but we can't actually run queries against it. Now that we've built our schema and data sources, it's time to leverage all of our hard work by calling our data sources in our graph API's resolver functions to possibly trigger business logic and/or to fetch and/or update data.
 
 ## What is a resolver?
 
-**Resolvers** provide the instructions for turning a GraphQL operation (a query, mutation, or subscription) into data. They either return the same type of data we specify in our schema or a promise for that data.
+**Resolvers** は GraphQL の operation（query や mutation や subscription）が、実際にどのような処理を行なってデータを返すのかという指示書です。**Resolver** は schema で定義した型の値を返さなければいけません。もしくはその型の値の promise を返さなければいけません。
+
+> **Resolvers** provide the instructions for turning a GraphQL operation (a query, mutation, or subscription) into data. They either return the same type of data we specify in our schema or a promise for that data.
+
+> 訳注：今まで作ってきた schema は、Graph API に対してどのような処理ができて、どのような型の値が返ってくるかという設計図だった。しかしこの設計図には、どのように値を取得するのかといった具体的なことは書かれていない。その実際の値を取得したりという具体的な指示は、Resolver に記述する。例えば schema の Query.launches が実行された場合にはそれに対応する Resolver の Query.launches が実行される。Resolver の Query.launches には Context から与えられた Data source を通して API で値をフェッチする処理、それから必要な形への加工等が記述されている。このように schema で全体の構造を設計し、それに対応する resolver で実際に値を取得したり加工したりしたものを返す、という役割分担になっている。
 
 Before we can start writing resolvers, we need to learn more about what a resolver function looks like. Resolver functions accept four arguments:
 
