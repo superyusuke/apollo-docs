@@ -3,6 +3,10 @@ title: "5. API をクライアントに接続する"
 description: graph を Apollo Client に繋ぎこむ
 ---
 
+> 翻訳担当：keifff
+> github: https://github.com/keiffff
+> twitter: https://twitter.com/kei_ffff
+
 Time to accomplish: _10 Minutes_
 
 このチュートリアルの後半部分では、Apollo Client を用いて、 graph API を フロントエンドに接続することにのみフォーカスします。 **Apollo Client** はいかなるクライアントライブラリでも使用可能な、データ管理に関する完全なソリューションになります。 Apollo Client は view 層については何も知りません。すなわち、React, Vue, Angular はもちろん、vanilla JS とも統合可能です。賢いキャッシュの仕組みにより、 Apollo Client はあなたのアプリケーションにおけるすべてのローカル、リモートデータに対する、信頼できる唯一の情報源を提供します。
@@ -28,8 +32,8 @@ cd start/client && npm install
 > Now, our dependencies are installed. Here are the packages we will be using to build out our frontend:
 
 - `apollo-client`: 賢いキャッシュの仕組みをもつ、データ管理に関する完全なソリューションです。このチュートリアルでは、 ローカルでの状態管理が可能であることや、キャッシュ管理の仕組みを構築可能であることから、 Apollo Client 3.0 プレビュー版を使用します。
-- `react-apollo`: React 向けに `Query` や `Mutation` といったコンポーネントをエクスポートする、view 層との統合を実現するためのものです。
-- `graphql-tag`: AST でパースするためのクエリ文字列をラップする、 `gql` というタグ関数です。
+- `react-apollo`: React向けに `Query` や `Mutation` といったコンポーネントをエクスポートする、view 層との統合を実現するためのものです。
+- `graphql-tag`: ASTでパースするためのクエリ文字列をラップする、 `gql` というタグ関数です。
 
 > - `apollo-client`: A complete data management solution with an intelligent cache. In this tutorial, we will be using the Apollo Client 3.0 preview since it includes local state management capabilities and sets your cache up for you.
 > - `react-apollo`: The view layer integration for React that exports components such as `Query` and `Mutation`
@@ -41,7 +45,7 @@ Apollo VSCode は、このチュートリアルを完了するためには必須
 
 > While Apollo VSCode is not required to successfully complete the tutorial, setting it up unlocks a lot of helpful features such as autocomplete for operations, jump to fragment definitions, and more.
 
-まず、 `client/` にある `.env.example` をコピーし、ファイル名を `.env` にします。 第 4 章ですでに作成してある Graph Manager API キー をファイルに追加します。
+まず、 `client/` にある `.env.example` をコピーし、ファイル名を `.env` にします。 第4章ですでに作成してある Graph Manager API キー をファイルに追加します。
 
 > First, make a copy of the `.env.example` file located in `client/` and call it `.env`. Add your Graph Manager API key that you already created in step #4 to the file:
 
@@ -68,9 +72,9 @@ ENGINE_API_KEY=service:my-service-439:E4VSTiXeFWaSSBgFWXOiSA
 ```js
 module.exports = {
   client: {
-    name: "Space Explorer [web]",
-    service: "space-explorer"
-  }
+    name: 'Space Explorer [web]',
+    service: 'space-explorer',
+  },
 };
 ```
 
@@ -84,7 +88,7 @@ module.exports = {
 
 > Now that we have installed the necessary packages, let's create an `ApolloClient` instance.
 
-`src/index.js` に移動し、クライアントを作成します。 `uri` という引数に渡す値は、第 4 章でデプロイしたサービスの graph エンドポイントです。
+`src/index.js` に移動し、クライアントを作成します。 `uri` という引数に渡す値は、第4章でデプロイしたサービスの graph エンドポイントです。
 
 > Navigate to `src/index.js` so we can create our client. The `uri` that we pass in is the graph endpoint from the service you deployed in step 4.
 
@@ -95,13 +99,13 @@ module.exports = {
 _src/index.js_
 
 ```js
-import { ApolloClient } from "apollo-client";
-import { InMemoryCache } from "apollo-cache-inmemory";
-import { HttpLink } from "apollo-link-http";
+import { ApolloClient } from 'apollo-client';
+import { InMemoryCache } from 'apollo-cache-inmemory';
+import { HttpLink } from 'apollo-link-http';
 
 const cache = new InMemoryCache();
 const link = new HttpLink({
-  uri: "http://localhost:4000/"
+  uri: 'http://localhost:4000/'
 });
 
 const client = new ApolloClient({
@@ -158,11 +162,11 @@ client
 
 > Open up your console and run `npm start`. This will compile your client app. Once it is finished, your browser should open to `http://localhost:3000/` automatically. When the index page opens, open up your [Developer Tools console](https://developers.google.com/web/tools/chrome-devtools/console/) and you should see an object with a `data` property containing the result of our query. You'll also see some other properties, like `loading` and `networkStatus`. This is because Apollo Client tracks the loading state of your query for you.
 
-Apollo Client は、いかなる JavaScript フロントエンドからも graph データをフェッチできるようにデザインされています。フレームワークは必要ありません。しかし、　異なるフレームワークに対して、クエリを UI に結びつけるのを簡単にするための view 層との統合があります。
+Apollo Client は、いかなる JavaScript フロントエンドからも graph データをフェッチできるようにデザインされています。フレームワークは必要ありません。しかし、　異なるフレームワークに対して、クエリをUIに結びつけるのを簡単にするための view 層との統合があります。
 
 > Apollo Client is designed to fetch graph data from any JavaScript frontend. No frameworks needed. However, there are view layer integrations for different frameworks that makes it easier to bind queries to the UI.
 
-次に進み、 先ほど作成した、 `client.query()` の呼び出しと、 `gql` のインポート宣言を削除してください。それでは、クライアントを React に接続しましょう。
+次に進み、 先ほど作成した、 `client.query()` の呼び出しと、 `gql` のインポート宣言を削除してください。それでは、クライアントをReactに接続しましょう。
 
 > Go ahead and delete the `client.query()` call you just made and the `gql` import statement. Now, we'll connect our client to React.
 
@@ -172,7 +176,7 @@ Apollo の hooks を用いて、 Apollo Client を React アプリケーショ�
 
 > Connecting Apollo Client to our React app with Apollo's hooks allows us to easily bind GraphQL operations to our UI.
 
-Apollo Client を React に接続するために、 `@apollo/react-hooks` パッケージからエクスポートされた、 `ApolloProvider` コンポーネントでアプリケーションをラップして、 `client` という prop にクライアントを渡します。 `ApolloProvider` コンポーネントは、 React の context provider に似ています。それは React アプリケーションをラップし、コンテキストにクライアントを渡します。そうすることで、コンポーネントツリーの中のどの場所でも、アクセスが可能になります。
+Apollo Client を React に接続するために、 `@apollo/react-hooks` パッケージからエクスポートされた、 `ApolloProvider` コンポーネントでアプリケーションをラップして、 `client` というpropにクライアントを渡します。 `ApolloProvider` コンポーネントは、 React の context provider に似ています。それは React アプリケーションをラップし、コンテキストにクライアントを渡します。そうすることで、コンポーネントツリーの中のどの場所でも、アクセスが可能になります。
 
 > To connect Apollo Client to React, we will wrap our app in the `ApolloProvider` component exported from the `@apollo/react-hooks` package and pass our client to the `client` prop. The `ApolloProvider` component is similar to React’s context provider. It wraps your React app and places the client on the context, which allows you to access it from anywhere in your component tree.
 
@@ -183,18 +187,17 @@ Apollo Client を React に接続するために、 `@apollo/react-hooks` パッ
 _src/index.js_
 
 ```jsx
-import { ApolloProvider } from "@apollo/react-hooks";
-import React from "react";
-import ReactDOM from "react-dom";
-import Pages from "./pages";
+import { ApolloProvider } from '@apollo/react-hooks';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import Pages from './pages';
 
 // 前に行った変数宣言
 
 ReactDOM.render(
   <ApolloProvider client={client}>
     <Pages />
-  </ApolloProvider>,
-  document.getElementById("root")
+  </ApolloProvider>, document.getElementById('root')
 );
 ```
 
