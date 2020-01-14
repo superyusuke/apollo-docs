@@ -3,8 +3,8 @@ title: "5. API をクライアントに接続する"
 description: graph を Apollo Client に繋ぎこむ
 ---
 
-> 翻訳担当：keifff
-> github: https://github.com/keiffff
+> 翻訳担当：keifff  
+> github: https://github.com/keiffff  
 > twitter: https://twitter.com/kei_ffff
 
 Time to accomplish: _10 Minutes_
