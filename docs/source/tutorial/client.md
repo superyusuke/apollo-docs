@@ -9,11 +9,11 @@ description: graph を Apollo Client に繋ぎこむ
 
 Time to accomplish: _10 Minutes_
 
-このチュートリアルの後半部分では、Apollo Client を用いて、 graph API を フロントエンドに接続することにのみフォーカスします。 **Apollo Client** はいかなるクライアントに対しても、データ管理に関する完全なソリューションになります。それは view 層における不可知論者である、すなわち、React, Vue, Angular はもちろん、vanilla JS でさえも統合可能であることを意味しています。賢いキャッシュの仕組みにより、 Apollo Client はあなたのアプリケーションにおけるすべてのローカル、リモートデータに対する、信頼できる唯一の情報源を提供します。
+このチュートリアルの後半部分では、Apollo Client を用いて、 graph API を フロントエンドに接続することにのみフォーカスします。 **Apollo Client** はいかなるクライアントライブラリでも使用可能な、データ管理に関する完全なソリューションになります。 Apollo Client は view 層については何も知りません。すなわち、React, Vue, Angular はもちろん、vanilla JS とも統合可能です。賢いキャッシュの仕組みにより、 Apollo Client はあなたのアプリケーションにおけるすべてのローカル、リモートデータに対する、信頼できる唯一の情報源を提供します。
 
 > The next half of this tutorial exclusively focuses on connecting a graph API to a frontend with Apollo Client. **Apollo Client** is a complete data management solution for any client. It's view-layer agnostic, which means it can integrate with React, Vue, Angular, or even vanilla JS. Thanks to its intelligent cache, Apollo Client offers a single source of truth for all of the local and remote data in your application.
 
-Apollo Client はいかなるview層でも動作しますが、React と共に使用されるのが最も一般的です。この章では、先ほどチュートリアルの前半部分で作成した graph API を React アプリケーションに接続する方法を学ぶでしょう。たとえあなたが Vue や Angular のほうがしっくりくると思っていたとしても、概念は同じなので、例の多くを参考にすることが可能です。このチュートリアルの中ではさらに、認証やページネーションといった、基本的な機能を実装する方法はもちろん、ワークフローを最適化する tips についても学ぶでしょう。
+Apollo Client はいかなる view 層でも動作しますが、React と共に使用されるのが最も一般的です。この章では、先ほどチュートリアルの前半部分で作成した graph API を React アプリケーションに接続する方法を学ぶでしょう。たとえあなたが Vue や Angular のほうがしっくりくると思っていたとしても、概念は同じなので、例の多くを参考にすることが可能です。このチュートリアルの中ではさらに、認証やページネーションといった、基本的な機能を実装する方法はもちろん、ワークフローを最適化する tips についても学ぶでしょう。
 
 > While Apollo Client works with any view layer, it's most commonly used with React. In this section, you'll learn how to connect the graph API you just built in the previous half of this tutorial to a React app. Even if you're more comfortable with Vue or Angular, you should still be able to follow many of the examples since the concepts are the same. Along the way, you'll also learn how to build essential features like authentication and pagination, as well as tips for optimizing your workflow.
 
