@@ -12,7 +12,7 @@ module.exports = {
         githubRepo: 'apollographql/apollo',
         spectrumPath: '/',
         sidebarCategories: {
-          null: ['index', 'intro/platform', 'intro/benefits', 'makeMoneyTS/index'],
+          null: ['makeMoneyTS/whatsNew','index', 'intro/platform', 'intro/benefits', 'makeMoneyTS/index'],
           チュートリアル: [
             'tutorial/introduction',
             'tutorial/schema',
