@@ -58,7 +58,7 @@ export default function Login() {
 
 > Our `useMutation` hook returns a mutate function (`login`) and the data object returned from the mutation that we destructure from the tuple. Finally, we pass our login function to the `LoginForm` component.
 
-
+セッションが切れてもログイン状態を保持するためにログイントークンを `localStorage` に保存することにしましょう。（訳注：多分セキュリティ的にはこれはやらないほうがいいはず。）ではそれを実装していきます。
 
 > To create a better experience for our users, we want to persist the login between sessions. In order to do that, we need to save our login token to `localStorage`. Let's learn how we can use the `onCompleted` handler of `useMutation` to persist our login:
 
@@ -68,11 +68,13 @@ React Apollo の主要な機能の一つに、`ApolloClient` instance を React 
 
 > One of the main functions of React Apollo is that it puts your `ApolloClient` instance on React's context. Sometimes, we need to access the `ApolloClient` instance to directly call a method that isn't exposed by the `@apollo/react-hooks` helper components. The `useApolloClient` hook can help us access the client.
 
-では `useApolloClient` を実行して client instance を取得しましょう。そして `onCompleted` コールバックを `useMutation` に渡します。ここで渡したコールバックは mutation が完了した場合に、その返り値を用いて一度だけ実行されます。
+では `useApolloClient` を実行して client instance を取得しましょう。そして `onCompleted` コールバックを `useMutation` に渡します。ここで渡したコールバックは mutation が完了した場合に、その返り値を用いて一度だけ実行されます。このコールバック内では login token を `localStorage` に保存します。
 
 > Let's call `useApolloClient` to get the currently configured client instance. Next, we want to pass an `onCompleted` callback to `useMutation` that will be called once the mutation is complete with its return value. This callback is where we will save the login token to `localStorage`.
 
-In our `onCompleted` handler, we also call `client.writeData` to write local data to the Apollo cache indicating that the user is logged in. This is an example of a **direct write** that we'll explore further in the next section on local state management.
+この `onCompleted` ハンドラーの中で `client.writeData` も実行しています。これは Apollo cache が管理するローカルデータへ更新を加えるメソッドです。このローカルステイトを **直に書き換える手法** は次のセクションでより探求してきます。
+
+> In our `onCompleted` handler, we also call `client.writeData` to write local data to the Apollo cache indicating that the user is logged in. This is an example of a **direct write** that we'll explore further in the next section on local state management.
 
 _src/pages/login.js_
 
@@ -98,7 +100,9 @@ export default function Login() {
 
 ### Attach authorization headers to the request
 
-We're almost done completing our login feature! Before we do, we need to attach our token to the GraphQL request's headers so our server can authorize the user. To do this, navigate to `src/index.js` where we create our `ApolloClient` and replace the code below for the constructor:
+さてほとんどログイン機能の実装が完了しました。最後に token を GraphQL request のheaders に乗せるようにしましょう。このトークンがサーバーに渡り、認証のために使われます。`src/index.js` に移動して `ApolloClient` を変更します。
+
+> We're almost done completing our login feature! Before we do, we need to attach our token to the GraphQL request's headers so our server can authorize the user. To do this, navigate to `src/index.js` where we create our `ApolloClient` and replace the code below for the constructor:
 
 _src/index.js_
 
@@ -121,6 +125,10 @@ cache.writeData({
 });
 ```
 
-Specifying the `headers` option on `HttpLink` allows us to read the token from `localStorage` and attach it to the request's headers each time a GraphQL operation is made.
+`HttpLink` の `headers` option で設定を行います。GraphQL operation が作成されるたびに `localStorage` からトークンを取得し、リクエストの headers に与えるようにします。
 
-In the next section, we'll add the `<Login>` form to the user interface. For that, we need to learn how Apollo allows us to manage local state in our app.
+> Specifying the `headers` option on `HttpLink` allows us to read the token from `localStorage` and attach it to the request's headers each time a GraphQL operation is made.
+
+では次のセクションでは Apollo を用いたローカルステイトの管理について学習します。️
+
+> In the next section, we'll add the `<Login>` form to the user interface. For that, we need to learn how Apollo allows us to manage local state in our app.
