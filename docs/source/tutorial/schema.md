@@ -106,7 +106,7 @@ module.exports = typeDefs;
 
 > We'll start with the **Query type**, which is the entry point into our schema that describes what data we can fetch.
 
-Schema を書くために用いる言語は GraphQL's schema definition language (SDL) です。TypeScript を使ったことがあればシンタックスが非常に似ていると感じることでしょう。以下の SDL コードをコピーして `src/schema.js`　の `grl` 関数のバックティックの間にペーストしましょう。
+Schema を書くために用いる言語は GraphQL's schema definition language (SDL) です。TypeScript を使ったことがあればシンタックスが非常に似ていると感じることでしょう。以下の SDL コードをコピーして `src/schema.js`　の `gql` 関数のバックティックの間にペーストしましょう。
 
 > The language we use to write our schema is GraphQL's schema definition language (SDL). If you've used TypeScript before, the syntax will look familiar. Copy the following SDL code between the backticks where the `gql` function is invoked in  `src/schema.js`
 
